@@ -1,0 +1,46 @@
+.contact-page {
+	// .contact-page__container
+	&__container {
+	}
+	// .contact-page__body
+	&__body {
+		display: grid;
+		grid-template-columns: rem(450) 1fr;
+		grid-gap: rem(60) rem(120);
+		@media (max-width: em($md1)) {
+			grid-gap: rem(60);
+		}
+		@media (max-width: em($md2)) {
+			grid-template-columns: 1fr;
+		}
+	}
+	// .contact-page__column
+	&__column {
+		// .contact-page__column_contacts
+		&_contacts {
+		}
+		// .contact-page__column_map
+		&_map {
+		}
+	}
+	// .contact-page__title
+	&__title {
+		text-transform: uppercase;
+		margin: 0px 0px rem(60) 0px;
+	}
+	// .contact-page__contacts
+	&__contacts {
+	}
+	// .contact-page__map
+	&__map {
+		width: 100%;
+		height: rem(448);
+		@media (max-width: em($md2)) {
+			height: rem(300);
+		}
+		@media (max-width: em($md3)) {
+			margin: 0px rem(-15);
+			width: calc(100% + rem(30));
+		}
+	}
+}

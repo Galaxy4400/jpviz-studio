@@ -1,0 +1,190 @@
+.projects {
+	// .projects__container
+	&__container {
+	}
+	// .projects__body
+	&__body {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@media (max-width: em($md3)) {
+			grid-template-columns: repeat(1, 1fr);
+			grid-gap: rem(3);
+		}
+	}
+	// .projects__item
+	&__item {
+	}
+}
+
+//===============================================================
+.project-card {
+	display: block;
+	position: relative;
+	padding: 0px 0px prc(450, 960) 0px;
+	// .project-card__content
+	&__content {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: rem(20);
+	}
+	// .project-card__title
+	&__title {
+		transition: all 0.5s ease 0s;
+		text-transform: uppercase;
+		@media (any-hover: hover) {
+			.project-card:hover & {
+				color: #000;
+			}
+		}
+	}
+	// .project-card__bg
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		overflow: hidden;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.6);
+			transition: all 0.5s ease 0s;
+			@media (any-hover: hover) {
+				.project-card:hover & {
+					background: rgba(0, 0, 0, 0);
+				}
+			}
+		}
+		img {
+			transform: scale(1.001);
+			transition: all 0.5s ease 0s;
+			.project-card:hover & {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+
+//===============================================================
+.project {
+	// .project__container
+	&__container {
+	}
+	// .project__content
+	&__content {
+	}
+	// .project__description
+	&__description {
+		margin: 0px 0px rem(80) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(40) 0px;
+		}
+	}
+	// .project__advantages
+	&__advantages {
+	}
+}
+
+//===============================================================
+.project-advantages {
+	// .project-advantages__title
+	&__title {
+		margin: 0px 0px rem(60) 0px;
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(30) 0px;
+		}
+	}
+	// .project-advantages__list
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: rem(40) rem(65);
+		margin: 0px 0px rem(120) 0px;
+		@media (max-width: em($md2)) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		@media (max-width: em($md3)) {
+			margin: 0px 0px rem(60) 0px;
+		}
+	}
+	// .project-advantages__item
+	&__item {
+	}
+}
+
+//===============================================================
+.advantage {
+	display: grid;
+	grid-template-columns: rem(50) 1fr;
+	grid-gap: rem(30);
+	@media (max-width: em($md3)) {
+		grid-template-columns: rem(30) 1fr;
+		grid-gap: rem(20);
+	}
+	// .advantage__column
+	&__column {
+		// .advantage__column_icon
+		&_icon {
+			font-size: rem(50);
+			@media (max-width: ($md3+'px')) {
+				font-size: rem(30);
+			}
+		}
+		// .advantage__column_text
+		&_text {
+			padding: rem(15) 0px 0px 0px;
+			@include adaptiv-value(font-size, 24, 16, 1);
+			@media (max-width: em($md3)) {
+				padding: 0px 0px 0px 0px;
+			}
+			span {
+				text-transform: uppercase;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+//===============================================================
+.project-gallery {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: rem(65);
+	@media (max-width: em($md2)) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: rem(40);
+	}
+	@media (max-width: em($md3)) {
+		grid-gap: rem(20);
+	}
+	@media (max-width: em($md4)) {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	// .project-gallery__item
+	&__item {
+	}
+	// .project-gallery__img
+	&__img {
+		display: block;
+		padding: 0px 0px prc(450, 530) 0px;
+		img {
+			transform: scale(1.001);
+			transition: all 0.5s ease 0s;
+			.project-gallery__item:hover & {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
