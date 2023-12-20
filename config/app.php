@@ -171,6 +171,7 @@ return [
         App\Providers\MoonShineServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
+        App\Providers\TestingServiceProvider::class,
     ])->toArray(),
 
     /*
