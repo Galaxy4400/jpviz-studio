@@ -7,10 +7,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
 
 
-class HomeController extends Controller
+class ProjectsController extends Controller
 {
 	public function __invoke(): View|Factory
 	{
-		return view('pages.home');
+		return view('pages.projects');
 	}
 }

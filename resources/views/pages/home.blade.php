@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('content')
+@section('page')
 	<section class="page__header">
 		<h1 class="_semantic-hidden">JP Visualisation Studio</h1>
 		<div class="main-slider" data-swiper>
@@ -13,7 +13,7 @@
 							<a class="form__btn btn btn_arrow" href="#">Learn more</a>
 						</div>
 						<div class="main-slider-slide__bg _ibg">
-							<img src="https://w.forfun.com/fetch/ec/ec0bd4610aa1a04d3fc7a476fcc5f00e.jpeg" alt="">
+							<img src="{{ Vite::image('slide.jpg') }}" alt="">
 						</div>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 							<a class="form__btn btn btn_arrow" href="#">Learn more</a>
 						</div>
 						<div class="main-slider-slide__bg _ibg">
-							<img src="{{ Vite::image('slide.jpg') }}" alt="">
+							<img src="https://w.forfun.com/fetch/ec/ec0bd4610aa1a04d3fc7a476fcc5f00e.jpeg" alt="">
 						</div>
 					</div>
 				</div>

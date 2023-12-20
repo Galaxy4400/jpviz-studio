@@ -10,7 +10,7 @@
 
 		<main class="page">
 
-			@yield('content')
+			@yield('page')
 
 		</main>
 
