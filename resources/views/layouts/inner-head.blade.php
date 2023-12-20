@@ -3,14 +3,9 @@
 	<div class="inner-header__bottom">
 		<div class="inner-header__container _container">
 			<div class="inner-header__content">
-				<nav class="breadcrumbs">
-					<ul class="breadcrumbs__list">
-						<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="#" title="Home">Home</a></li>
-						<li class="breadcrumbs__item"><span class="breadcrumbs__current" title="Contact">Contact</span></li>
-					</ul>
-				</nav>
+				{{ Breadcrumbs::render() }}
 				<div class="title-block">
-					<h2 class="title-block__title">Contact</h2>
+					<h2 class="title-block__title">{{ ($breadcrumb = Breadcrumbs::current()) ? $breadcrumb->title : env('APP_NAME') }}</h2>
 				</div>
 			</div>
 		</div>

@@ -6,9 +6,9 @@
 					<div class="main-menu__body" data-menu-container="main-menu">
 						<nav class="main-menu main-menu_left">
 							<ul class="main-menu__list">
-								<li class="main-menu__item"><a class="main-menu__link" href="{{ route('projects') }}">Projects</a></li>
-								<li class="main-menu__item"><a class="main-menu__link" href="{{ route('about') }}">About</a></li>
-								<li class="main-menu__item"><a class="main-menu__link" href="{{ route('shop') }}">Shop</a></li>
+								@foreach ($menuLeft as $item)
+									<li class="main-menu__item"><a class="main-menu__link {{ $item->isActive() ? '_active' : ''}}" href="{{ $item->link() }}">{{ $item->label() }}</a></li>
+								@endforeach
 							</ul>
 						</nav>
 					</div>
@@ -28,9 +28,9 @@
 				</div>
 				<nav class="main-menu main-menu_right" data-adapt="main-menu__body,1150">
 					<ul class="main-menu__list">
-						<li class="main-menu__item"><a class="main-menu__link" href="{{ route('visualization') }}">visualization</a></li>
-						<li class="main-menu__item"><a class="main-menu__link" href="{{ route('design') }}">Design</a></li>
-						<li class="main-menu__item"><a class="main-menu__link" href="{{ route('contacts') }}">Contact</a></li>
+						@foreach ($menuRight as $item)
+							<li class="main-menu__item"><a class="main-menu__link {{ $item->isActive() ? '_active' : ''}}" href="{{ $item->link() }}">{{ $item->label() }}</a></li>
+						@endforeach
 					</ul>
 				</nav>
 			</div>
