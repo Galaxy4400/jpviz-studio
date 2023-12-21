@@ -11,7 +11,7 @@ class FakerImageProvider extends Base
 	public const BASE_URL = 'https://loremflickr.com/';
 
 	
-	public function loremflickr(string $dir = null, int $width = 500, int $height = 500, bool $fullPath = false, $format = 'jpg'): string
+	public function loremflickr(string $dir = null, int $width = 500, int $height = 500, bool $fullPath = true, $format = 'jpg'): string
 	{
 		$dir = null === $dir ? sys_get_temp_dir() : $dir;
 
@@ -24,7 +24,7 @@ class FakerImageProvider extends Base
 			file_get_contents(self::BASE_URL . $width . '/' . $height)
 		);
 
-		return $fullPath ? $filepath : $filename;
+		return $fullPath ? '/storage/' . $filepath : $filename;
 	}
 
 

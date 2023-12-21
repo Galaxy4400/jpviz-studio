@@ -9,17 +9,12 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class SlideFactory extends Factory
 {
-	/**
-	 * Define the model's default state.
-	 *
-	 * @return array<string, mixed>
-	 */
 	public function definition(): array
 	{
 		return [
 			'title' => $this->faker->words(rand(1, 3), true),
 			'description' => $this->faker->sentence(),
-			'image' => $this->faker->loremflickr('images/slides', 1920, 1080),
+			'image' => $this->faker->fixturesImage('slides'),
 			'link' => $this->faker->url(),
 		];
 	}

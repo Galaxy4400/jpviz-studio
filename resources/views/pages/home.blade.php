@@ -2,43 +2,8 @@
 
 @section('page')
 	<section class="page__header">
-		<h1 class="_semantic-hidden">JP Visualisation Studio</h1>
-		<div class="main-slider" data-swiper>
-			<div class="main-slider__slides">
-				<div class="main-slider__slide main-slider-slide">
-					<div class="main-slider-slide__container _container">
-						<div class="main-slider-slide__content">
-							<h2 class="main-slider-slide__title h1">Description</h2>
-							<p class="main-slider-slide__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et leo duis ut diam quam nulla porttitor massa. Amet nulla facilisi morbi tempus iaculis.</p>
-							<a class="form__btn btn btn_arrow" href="#">Learn more</a>
-						</div>
-						<div class="main-slider-slide__bg _ibg">
-							<img src="{{ Vite::image('slide.jpg') }}" alt="">
-						</div>
-					</div>
-				</div>
-				<div class="main-slider__slide main-slider-slide">
-					<div class="main-slider-slide__container _container">
-						<div class="main-slider-slide__content">
-							<h2 class="main-slider-slide__title h1">Description</h2>
-							<p class="main-slider-slide__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et leo duis ut diam quam nulla porttitor massa. Amet nulla facilisi morbi tempus iaculis.</p>
-							<a class="form__btn btn btn_arrow" href="#">Learn more</a>
-						</div>
-						<div class="main-slider-slide__bg _ibg">
-							<img src="https://w.forfun.com/fetch/ec/ec0bd4610aa1a04d3fc7a476fcc5f00e.jpeg" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="main-slider__arrows main-slider-arrows">
-				<div class="main-slider-arrows__container _container">
-					<div class="main-slider-arrows__arrows">
-						<button class="main-slider-arrows__arrow main-slider-arrows__arrow_prev _icon-arrow"></button>
-						<button class="main-slider-arrows__arrow main-slider-arrows__arrow_next _icon-arrow"></button>
-					</div>
-				</div>
-			</div>
-		</div>
+		<h1 class="_semantic-hidden">{{ env('APP_NAME') }}</h1>
+		@include('partials.slider.slider')
 	</section>
 
 	<section class="page__projects">
@@ -57,44 +22,16 @@
 				</div>
 			</div>
 		</header>
-		<div class="projects">
-			<div class="projects__container _container-max">
-				<div class="projects__body">
-					<a class="projects__item project-card" href="#">
-						<div class="project-card__content">
-							<h4 class="project-card__title">Project name 1</h4>
-						</div>
-						<figure class="project-card__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="projects__item project-card" href="#">
-						<div class="project-card__content">
-							<h4 class="project-card__title">Project name 2</h4>
-						</div>
-						<figure class="project-card__bg _ibg">
-							<img src="{{ Vite::image('p3.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="projects__item project-card" href="#">
-						<div class="project-card__content">
-							<h4 class="project-card__title">Project name 3</h4>
-						</div>
-						<figure class="project-card__bg _ibg">
-							<img src="{{ Vite::image('p3.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="projects__item project-card" href="#">
-						<div class="project-card__content">
-							<h4 class="project-card__title">Project name 4</h4>
-						</div>
-						<figure class="project-card__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
+
+		@if ($projects->isNotEmpty())
+			<div class="projects">
+				<div class="projects__container _container-max">
+					<div class="projects__body">
+						@each('projects.partials.card', $projects, 'project')
+					</div>
 				</div>
 			</div>
-		</div>
+		@endif
 	</section>
 
 	<section class="page__shop">
@@ -115,46 +52,7 @@
 		<div class="page__container _container">
 			<div class="shop-categpries">
 				<div class="shop-categpries__body">
-					<a class="shop-categpries__item shop-category" href="#">
-						<div class="shop-category__content">
-							<h5 class="shop-category__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
-						</div>
-						<figure class="shop-category__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="shop-categpries__item shop-category" href="#">
-						<div class="shop-category__content">
-							<h5 class="shop-category__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
-						</div>
-						<figure class="shop-category__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="shop-categpries__item shop-category" href="#">
-						<div class="shop-category__content">
-							<h5 class="shop-category__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
-						</div>
-						<figure class="shop-category__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="shop-categpries__item shop-category" href="#">
-						<div class="shop-category__content">
-							<h5 class="shop-category__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
-						</div>
-						<figure class="shop-category__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
-					<a class="shop-categpries__item shop-category" href="#">
-						<div class="shop-category__content">
-							<h5 class="shop-category__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
-						</div>
-						<figure class="shop-category__bg _ibg">
-							<img src="{{ Vite::image('p1.jpg') }}" alt="">
-						</figure>
-					</a>
+					@each('partials.shop.category', $categories, 'category')
 				</div>
 			</div>
 		</div>

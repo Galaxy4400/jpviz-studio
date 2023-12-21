@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
@@ -9,8 +10,16 @@ use Illuminate\Contracts\View\Factory;
 
 class ProjectsController extends Controller
 {
-	public function __invoke(): View|Factory
+	public function index(): View|Factory
 	{
-		return view('pages.projects');
+		$projects = Project::all();
+
+		return view('projects.index')->with(compact('projects'));
+	}
+	
+	
+	public function details(Project $project): View|Factory
+	{
+		return view('projects.details');
 	}
 }
