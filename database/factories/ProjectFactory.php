@@ -12,8 +12,7 @@ class ProjectFactory extends Factory
 	public function definition(): array
 	{
 		return [
-			'title' => $this->faker->words(rand(1, 3), true),
-			'image' => $this->faker->fixturesImage('projects'),
+			'title' => ucfirst($this->faker->words(rand(1, 3), true)),
 		];
 	}
 }

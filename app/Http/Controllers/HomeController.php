@@ -14,9 +14,9 @@ class HomeController extends Controller
 {
 	public function __invoke(): View|Factory
 	{
-		$slides = Slide::all();
+		$slides = Slide::query()->with('media')->get();
 
-		$projects = Project::query()->limit(4)->get();
+		$projects = Project::query()->with('media')->limit(4)->get();
 
 		$categories = Category::all();
 

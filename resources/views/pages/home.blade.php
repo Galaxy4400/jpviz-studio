@@ -7,21 +7,12 @@
 	</section>
 
 	<section class="page__projects">
-		<header class="section-header">
-			<div class="section-header__container _container">
-				<div class="section-header__body">
-					<div class="section-header__column section-header__column_left"></div>
-					<div class="section-header__column section-header__column_center">
-						<div class="section-header__title title-block">
-							<h2 class="title-block__title">Projects</h2>
-						</div>
-					</div>
-					<div class="section-header__column section-header__column_right">
-						<a class="section-header__link link-more" href="#">All projects</a>
-					</div>
-				</div>
-			</div>
-		</header>
+
+		@include('partials.section-header', [
+			'title' => 'Projects', 
+			'linkTitle' => 'All projects', 
+			'link' => route('projects')
+		])
 
 		@if ($projects->isNotEmpty())
 			<div class="projects">
@@ -32,23 +23,13 @@
 				</div>
 			</div>
 		@endif
+
 	</section>
 
 	<section class="page__shop">
-		<header class="section-header">
-			<div class="section-header__container _container">
-				<div class="section-header__body">
-					<div class="section-header__column section-header__column_left"></div>
-					<div class="section-header__column section-header__column_center">
-						<div class="section-header__title title-block">
-							<h2 class="title-block__title">Shop</h2>
-						</div>
-					</div>
-					<div class="section-header__column section-header__column_right">
-					</div>
-				</div>
-			</div>
-		</header>
+
+		@include('partials.section-header', ['title' => 'Shop'])
+		
 		<div class="page__container _container">
 			<div class="shop-categpries">
 				<div class="shop-categpries__body">
@@ -60,21 +41,12 @@
 	</section>
 
 	<section class="page__form">
-		<header class="section-header">
-			<div class="section-header__container _container">
-				<div class="section-header__body">
-					<div class="section-header__column section-header__column_left"></div>
-					<div class="section-header__column section-header__column_center">
-						<div class="section-header__title title-block">
-							<h2 class="title-block__title">Feedback</h2>
-							<div class="title-block__label">Leave a request for a free consultation</div>
-						</div>
-					</div>
-					<div class="section-header__column section-header__column_right">
-					</div>
-				</div>
-			</div>
-		</header>
+
+		@include('partials.section-header', [
+			'title' => 'Feedback', 
+			'label' => 'Leave a request for a free consultation'
+		])
+
 		<div class="page__container _container">
 			<form class="form form_feedback" name="feedback" action="./" method="post" data-form data-autocomplete-off>
 				<div class="form__section">

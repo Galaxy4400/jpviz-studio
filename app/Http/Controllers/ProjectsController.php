@@ -20,6 +20,6 @@ class ProjectsController extends Controller
 	
 	public function details(Project $project): View|Factory
 	{
-		return view('projects.details');
+		return view('projects.details', compact('project'));
 	}
 }

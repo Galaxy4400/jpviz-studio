@@ -10,7 +10,7 @@
 			@endif
 		</div>
 		<div class="main-slider-slide__bg _ibg">
-			<img src="{{ asset($slide->image) }}" alt="{{ $slide->title }}">
+			<img src="{{ $slide->getFirstMediaUrl('image') }}" alt="{{ $slide->title }}">
 		</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Project;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -11,6 +12,11 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('projects', function (BreadcrumbTrail $trail) {
 	$trail->parent('home');
 	$trail->push('Projects', route('projects'));
+});
+
+Breadcrumbs::for('project', function (BreadcrumbTrail $trail, Project $project) {
+	$trail->parent('projects');
+	$trail->push($project->title, route('projects', $project));
 });
 
 Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {

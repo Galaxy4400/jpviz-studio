@@ -12,9 +12,8 @@ class SlideFactory extends Factory
 	public function definition(): array
 	{
 		return [
-			'title' => $this->faker->words(rand(1, 3), true),
+			'title' => ucfirst($this->faker->words(rand(1, 3), true)),
 			'description' => $this->faker->sentence(),
-			'image' => $this->faker->fixturesImage('slides'),
 			'link' => $this->faker->url(),
 		];
 	}
