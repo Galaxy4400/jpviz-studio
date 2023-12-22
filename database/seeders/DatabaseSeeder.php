@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Database\Factories\AdminFactory;
 use Database\Factories\SlideFactory;
 use Database\Factories\ProductFactory;
 use Database\Factories\ProjectFactory;
@@ -18,6 +19,12 @@ class DatabaseSeeder extends Seeder
 {
 	public function run(): void
 	{
+		AdminFactory::new()->createOne([
+			'email' => 'admin@test.ru',
+			'password' => bcrypt('1234'),
+			'name' => 'Admin',
+		]);
+
 		SlideFactory::new()
 			->count(2)
 			->create()

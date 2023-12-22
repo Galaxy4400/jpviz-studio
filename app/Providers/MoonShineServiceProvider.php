@@ -8,8 +8,8 @@ use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
-use MoonShine\Resources\MoonShineUserResource;
-use MoonShine\Resources\MoonShineUserRoleResource;
+use App\MoonShine\Resources\MoonShineUserResource;
+use App\MoonShine\Resources\MoonShineUserRoleResource;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
@@ -47,6 +47,27 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 	 */
 	protected function theme(): array
 	{
-		return [];
+		return [
+			'colors' => [
+				'primary' => '#2288ed',
+				'secondary' => '#e7505a',
+				'success-bg' => '#1AA244',
+			],
+			'darkColors' => [
+				'primary' => '#1175dd',
+				'secondary' => '#d4222e',
+				'success-bg' => '#21a926',
+			]
+		];
+	}
+
+
+	public function boot(): void
+	{
+		parent::boot();
+
+		moonShineAssets()->add([
+			'assets/css/admin.css',
+		]);
 	}
 }
