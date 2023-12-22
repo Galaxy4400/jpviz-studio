@@ -38,66 +38,13 @@
 					</div>
 				</div>
 				<div class="project__advantages project-gallery" data-gallery>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p1.jpg') }}">
-							<img src="{{ Vite::image('p1.jpg') }}" data-src="{{ Vite::image('p1.jpg') }}"/>
-						</a>
-					</div>
-					<div class="project-gallery__item">
-						<a class="project-gallery__img _ibg" href="{{ Vite::image('p3.jpg') }}">
-							<img src="{{ Vite::image('p3.jpg') }}" data-src="{{ Vite::image('p3.jpg') }}"/>
-						</a>
-					</div>
+					@foreach ($project->getMedia('gallery') as $mediaItem)
+						<div class="project-gallery__item">
+							<a class="project-gallery__img _ibg" href="{{ $mediaItem->getUrl() }}">
+								<img src="{{ $mediaItem->getUrl() }}" data-src="{{ $mediaItem->getUrl() }}"/>
+							</a>
+						</div>
+					@endforeach
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,6 @@
 		<h5 class="shop-category__title">{{ $category->title }}</h5>
 	</div>
 	<figure class="shop-category__bg _ibg">
-		<img src="{{ asset($category->image) }}" alt="{{ $category->title }}">
+		<img src="{{ $category->getFirstMediaUrl('image') }}" alt="{{ $category->title }}">
 	</figure>
 </a>

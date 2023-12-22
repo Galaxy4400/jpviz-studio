@@ -20,6 +20,8 @@ class ProjectsController extends Controller
 	
 	public function details(Project $project): View|Factory
 	{
+		$project->load('media');
+
 		return view('projects.details', compact('project'));
 	}
 }

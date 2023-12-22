@@ -14,11 +14,19 @@ class HomeController extends Controller
 {
 	public function __invoke(): View|Factory
 	{
-		$slides = Slide::query()->with('media')->get();
+		$slides = Slide::query()
+			->with('media')
+			->get();
 
-		$projects = Project::query()->with('media')->limit(4)->get();
+		$projects = Project::query()
+			->with('media')
+			->inRandomOrder()
+			->limit(4)
+			->get();
 
-		$categories = Category::all();
+		$categories = Category::query()
+			->with('media')
+			->get();
 
 		return view('pages.home')->with(compact('slides', 'projects', 'categories'));
 	}

@@ -18,7 +18,6 @@ class Project extends Model implements HasMedia
 
 	protected $fillable = [
 		'title',
-		// 'image',
 	];
 
 

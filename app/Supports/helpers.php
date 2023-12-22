@@ -1,10 +1,27 @@
 <?php
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 
 
-if (!function_exists('getRandomFile')) {
-	function getRandomFile(string $dir): string
+if (!function_exists('d')) {
+	function d(mixed ...$vars): void
+	{
+		dump(...$vars);
+	}
+}
+
+
+if (!function_exists('fixtures_path')) {
+	function fixtures_path(string $path = ''): mixed
+	{
+		return base_path('tests/Fixtures/' . trim($path, '/\\'));
+	}
+}
+
+
+if (!function_exists('random_file')) {
+	function random_file(string $dir): string
 	{
 		$files = File::files($dir);
 
@@ -25,5 +42,16 @@ if (!function_exists('repeat')) {
 		for ($i=0; $i < $times; $i++) { 
 			$callback();
 		}
+	}
+}
+
+
+if (!function_exists('media_factory')) {
+	function media_factory(Model $model, string $filesDir = '', string $mediaCollection ='', int $count = 1): void
+	{
+		repeat($count, fn () => $model
+			->copyMedia(random_file($filesDir))
+			->toMediaCollection($mediaCollection)
+		);
 	}
 }

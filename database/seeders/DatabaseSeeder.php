@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Category;
 use App\Models\Slide;
 use App\Models\Project;
 use Illuminate\Database\Seeder;
@@ -18,21 +19,22 @@ class DatabaseSeeder extends Seeder
 		SlideFactory::new()
 			->count(2)
 			->create()
-			->each(fn (Slide $slide) => $slide
-				->copyMedia(getRandomFile(base_path('tests/Fixtures/images/slides')))
-				->toMediaLibrary('image')
-		);
+			->each(fn (Slide $slide) =>
+				media_factory($slide, fixtures_path('images/slides'), 'image')
+			);
 
 		ProjectFactory::new()
 			->count(10)
 			->create()
-			->each(fn (Project $project) =>
-				repeat(rand(4, 8), fn () => $project
-					->copyMedia(getRandomFile(base_path('tests/Fixtures/images/projects')))
-					->toMediaCollection('gallery')
-				)
+			->each(fn (Project $project) => 
+				media_factory($project, fixtures_path('images/projects'), 'gallery', rand(4, 7))
 			);
 
-		CategoryFactory::new()->count(5)->create();
+		CategoryFactory::new()
+			->count(5)
+			->create()
+			->each(fn (Category $category) =>
+				media_factory($category, fixtures_path('images/categories'), 'image')
+			);
 	}
 }

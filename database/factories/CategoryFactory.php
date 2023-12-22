@@ -13,7 +13,6 @@ class CategoryFactory extends Factory
 	{
 		return [
 			'title' => ucfirst($this->faker->sentence()),
-			'image' => $this->faker->fixturesImage('categories'),
 		];
 	}
 }
