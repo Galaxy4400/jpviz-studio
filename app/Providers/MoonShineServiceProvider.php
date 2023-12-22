@@ -10,6 +10,7 @@ use MoonShine\Menu\MenuGroup;
 use MoonShine\Menu\MenuItem;
 use App\MoonShine\Resources\MoonShineUserResource;
 use App\MoonShine\Resources\MoonShineUserRoleResource;
+use App\MoonShine\Resources\ProjectResource;
 
 class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 {
@@ -26,6 +27,8 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
 	protected function menu(): array
 	{
 		return [
+			MenuItem::make('Проекты', new ProjectResource()),
+
 			MenuGroup::make(static fn () => __('moonshine::ui.resource.system'), [
 				MenuItem::make(
 					static fn () => __('moonshine::ui.resource.admins_title'),

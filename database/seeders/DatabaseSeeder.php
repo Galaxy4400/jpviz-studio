@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 	public function run(): void
 	{
 		AdminFactory::new()->createOne([
-			'email' => 'admin@test.ru',
+			'email' => 'admin@admin.ru',
 			'password' => bcrypt('1234'),
 			'name' => 'Admin',
 		]);
