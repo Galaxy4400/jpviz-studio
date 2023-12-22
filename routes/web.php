@@ -12,21 +12,29 @@ use App\Http\Controllers\VisualizationController;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::controller(ProjectsController::class)
-	->prefix('projects')
-	->group(function () {
-		Route::get('/', 'index')->name('projects');
-		Route::get('/{project}', 'details')->name('project');
-	}
-);
-
-
 Route::get('/about', AboutController::class)->name('about');
-
-Route::get('/shop', ShopController::class)->name('shop');
 
 Route::get('/visualization', VisualizationController::class)->name('visualization');
 
 Route::get('/design', DesignController::class)->name('design');
 
 Route::get('/contacts', ContactsController::class)->name('contacts');
+
+
+Route::controller(ProjectsController::class)
+	->prefix('projects')
+	->group(function () {
+		Route::get('/', 'index')->name('projects');
+		Route::get('/{project}', 'project')->name('project');
+	}
+);
+
+
+Route::controller(ShopController::class)
+	->prefix('shop')
+	->group(function () {
+		Route::get('/', 'index')->name('shop');
+		Route::get('/category/{category}', 'category')->name('shop.category');
+		Route::get('/product/{product}', 'product')->name('shop.product');
+	}
+);

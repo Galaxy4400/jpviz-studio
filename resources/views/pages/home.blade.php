@@ -33,7 +33,7 @@
 		<div class="page__container _container">
 			<div class="shop-categpries">
 				<div class="shop-categpries__body">
-					@each('partials.shop.category', $categories, 'category')
+					@each('shop.partials.category-card', $categories, 'category')
 				</div>
 			</div>
 		</div>

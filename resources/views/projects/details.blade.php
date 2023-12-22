@@ -41,7 +41,7 @@
 					@foreach ($project->getMedia('gallery') as $mediaItem)
 						<div class="project-gallery__item">
 							<a class="project-gallery__img _ibg" href="{{ $mediaItem->getUrl() }}">
-								<img src="{{ $mediaItem->getUrl() }}" data-src="{{ $mediaItem->getUrl() }}"/>
+								<img src="{{ $mediaItem->getUrl('thumb') }}"/>
 							</a>
 						</div>
 					@endforeach

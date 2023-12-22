@@ -18,7 +18,7 @@ class ProjectsController extends Controller
 	}
 	
 	
-	public function details(Project $project): View|Factory
+	public function project(Project $project): View|Factory
 	{
 		$project->load('media');
 

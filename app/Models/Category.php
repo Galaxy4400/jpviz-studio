@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Spatie\Sluggable\HasSlug;
+use Spatie\Image\Manipulations;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Category extends Model implements HasMedia
 {
@@ -37,5 +40,19 @@ class Category extends Model implements HasMedia
 	public function registerMediaCollections(): void
 	{
 		$this->addMediaCollection('image')->singleFile();
+	}
+
+
+	public function registerMediaConversions(?Media $media = null): void
+	{
+		$this->addMediaConversion('thumb')
+			->crop(Manipulations::CROP_CENTER, 400, 400)
+			->nonQueued();
+	}
+
+
+	public function products(): HasMany
+	{
+		return $this->hasMany(Product::class);
 	}
 }
