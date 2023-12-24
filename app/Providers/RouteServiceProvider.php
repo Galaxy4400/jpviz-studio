@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
+use MoonShine\Http\Middleware\Authenticate;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,10 @@ class RouteServiceProvider extends ServiceProvider
 			Route::middleware('api')
 				->prefix('api')
 				->group(base_path('routes/api.php'));
+
+			Route::middleware(['moonshine', Authenticate::class])
+				->namespace($this->namespace)
+				->group(base_path('routes/moonshine.php')); 
 
 			Route::middleware('web')
 				->group(base_path('routes/web.php'));

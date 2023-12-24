@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 
 class ProjectsController extends Controller
