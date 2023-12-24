@@ -75,32 +75,6 @@ class PageResource extends TreeResource
 	}
 
 
-	// public function indexFields(): array
-	// {
-	// 	return [
-	// 		ID::make()->sortable(),
-
-	// 		Text::make('Название', 'title'),
-
-	// 		BelongsTo::make('Родительская страница', 'page', resource: new WebpageResource())
-	// 	];
-	// }
-
-	// public function formFields(): array
-	// {
-	// 	return [
-	// 		ID::make()->sortable(),
-	// 	];
-	// }
-
-	// public function detailFields(): array
-	// {
-	// 	return [
-	// 		ID::make()->sortable(),
-	// 	];
-	// }
-
-
 	public function rules(Model $item): array
 	{
 		return [];

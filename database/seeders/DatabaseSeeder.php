@@ -14,6 +14,7 @@ use Database\Factories\SlideFactory;
 use Database\Factories\ProductFactory;
 use Database\Factories\ProjectFactory;
 use Database\Factories\CategoryFactory;
+use Database\Factories\PageFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
 			'password' => bcrypt('1234'),
 			'name' => 'Admin',
 		]);
+
+		PageFactory::new()->count(10)->create();
 
 		SlideFactory::new()
 			->count(2)

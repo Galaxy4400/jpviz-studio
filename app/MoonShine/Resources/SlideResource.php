@@ -21,6 +21,12 @@ class SlideResource extends ModelResource
 
 	protected string $title = 'Slides';
 
+	protected bool $createInModal = true;
+
+	protected bool $editInModal = true;
+
+	protected bool $detailInModal = true;
+
 	public function fields(): array
 	{
 		return [
